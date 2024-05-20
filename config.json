@@ -1,0 +1,11 @@
+{
+	"aliases": {
+		"biome": ["preset-biome"],
+
+		"editorconfig": ["preset-editorconfig"],
+
+		"license": ["preset-license"],
+
+		"gitignore": ["preset-gitignore"]
+	}
+}
