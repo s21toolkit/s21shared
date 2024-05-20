@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Shared configurations and templates for s21toolkit projects.",
   "main": "config.json",
+  "bin": {
+    "s21scaffold": "./index.mjs",
+    "s21!": "./index.mjs"
+  },
   "scripts": {
     "postversion": "git push && git push --tags",
     "release": "npm version -m 'chore(release): %s' --"
