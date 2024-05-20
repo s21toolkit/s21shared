@@ -1,0 +1,13 @@
+{
+	"extends": ["./tsconfig/node.tsconfig.json"],
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+
+		"moduleResolution": "Node",
+		"module": "CommonJS",
+
+		"noEmit": true,
+		"declaration": false
+	}
+}
