@@ -46,14 +46,18 @@ function setupPackage(parameters) {
 				main: "build/index.js",
 			})
 			.save()
+	}
 
-		if (parameters.packageType.toLowerCase().endsWith("library")) {
-			mrm.packageJson()
-				.merge({
-					types: "build/index.d.ts",
-				})
-				.save()
-		}
+	if (parameters.packageType.toLowerCase().endsWith("library")) {
+		mrm.packageJson()
+			.merge({
+				types: "build/index.d.ts",
+			})
+			.save()
+	}
+
+	if (parameters.packageType.toLowerCase().includes("node")) {
+		mrm.install("@types/node", { pnpm: true, dev: true })
 	}
 
 	mrm.packageJson()
