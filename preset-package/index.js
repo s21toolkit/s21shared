@@ -56,7 +56,10 @@ function setupPackage(parameters) {
 			.save()
 	}
 
-	if (parameters.packageType.toLowerCase().includes("node")) {
+	if (
+		parameters.packageType.toLowerCase().includes("node") ||
+		parameters.packageType === "cli"
+	) {
 		mrm.install("@types/node", { pnpm: true, dev: true })
 	}
 
