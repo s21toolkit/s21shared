@@ -21,7 +21,11 @@
     "mrm-core": "^7.1.22"
   },
   "exports": {
-    "./tsup": "./tsup/configurations.js"
+    ".": "./config.json",
+    "./tsup": "./tsup/configurations.js",
+    "./tsconfig/base.tsconfig.json": "./tsconfig/base.tsconfig.json",
+    "./tsconfig/node.tsconfig.json": "./tsconfig/node.tsconfig.json",
+    "./tsconfig/tsup.tsconfig.json": "./tsconfig/tsup.tsconfig.json"
   },
   "private": false
 }
