@@ -4,8 +4,7 @@ import { spawnSync } from "node:child_process"
 import { binary, command, restPositionals, run, string } from "cmd-ts"
 
 const s21scaffoldCommand = command({
-	name: "s21scaffold",
-	aliases: ["s21!"],
+	name: "s21!",
 	args: {
 		tasks: restPositionals({
 			type: string,
