@@ -4,7 +4,7 @@
   "description": "Shared configurations and templates for s21toolkit projects.",
   "main": "config.json",
   "scripts": {
-    "postversion": "git push & git push --tags",
+    "postversion": "git push && git push --tags",
     "release": "npm version -m 'chore(release): %s' --"
   },
   "license": "MIT",
