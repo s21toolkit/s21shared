@@ -3,7 +3,14 @@
 Переиспользуемые конфигурации и шаблоны для проектов s21toolkit.
 
 ```sh
-pnpx mrm setup --preset @s21toolkit/shared -i
+pnpx @s21toolkit/shared setup
+```
+
+Использование с установкой пакета:
+
+```sh
+pnpm add --global @s21toolkit/shared
+s21! setup
 ```
 
 ## Конфигурации
@@ -20,7 +27,7 @@ biome.json
 
 ```json
 {
-	"extends": ["node_modules/@s21toolkit/shared/biome.json"]
+   "extends": ["node_modules/@s21toolkit/shared/biome.json"]
 }
 ```
 
@@ -36,7 +43,7 @@ tsconfig.json
 
 ```json
 {
-	"extends": ["@s21toolkit/shared/tsconfig/tsup.tsconfig.json"]
+   "extends": ["@s21toolkit/shared/tsconfig/tsup.tsconfig.json"]
 }
 ```
 
@@ -49,21 +56,30 @@ import { defineConfig } from "tsup"
 import { configs } from "@s21toolkit/shared/tsup"
 
 export default defineConfig([
-	{
-		...configs.nodeLibrary
-	},
-	{
-		...configs.cli
-	}
+   {
+      ...configs.nodeLibrary
+   },
+   {
+      ...configs.cli
+   }
 ])
 ```
 
 ## Шаблоны
 
-Шаблоны устанавливаются через `mrm` (см. [Документацию](https://mrm.js.org/)):
+Шаблоны устанавливаются через исполняемый скрипт в этом пакете.
+
+Можно использовать через `pnpx`:
 
 ```sh
-pnpx mrm <...шаблоны> --preset @s21toolkit/shared -i
+pnpx @s21toolkit/shared <...шаблоны>
+```
+
+Либо с установкой:
+
+```sh
+pnpm add --global @s21toolkit/shared
+s21! <...шаблоны>
 ```
 
 Доступные шаблоны:
@@ -76,3 +92,5 @@ pnpx mrm <...шаблоны> --preset @s21toolkit/shared -i
 * `package` - Создаёт полноценный проект s21toolkit с typescript/tsup и конфигурацией, рекоммендуется использовать в интерактивном (`-i`) режиме.
 * `configure` - Настраивает `package.json` (в основном скрипты) в зависимости от используемых инструментов.
 * `setup` - Устанавливает все предыдущие шаблоны в нужном порядке.
+
+Для просмотра полного списка доступных шаблонов можно запустить команду без аргументов.
