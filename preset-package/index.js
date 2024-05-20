@@ -87,9 +87,8 @@ setupPackage.description = "Creates package.json file and sets up basic fields"
 /** @type {TaskParameters} */
 setupPackage.parameters = {
 	packageType: {
-		type: "select",
+		type: "checkbox",
 		message: "Select package type",
-		default: "base",
 		choices: [
 			{
 				name: "Basic",
