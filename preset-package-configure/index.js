@@ -32,7 +32,14 @@ function configurePackage() {
 	const hasTsup = mrm.file("tsup.config.ts").exists()
 
 	if (hasTsup) {
-		mrm.packageJson().setScript("build", "tsup").save()
+		const hasBuildTsupScript =
+			"build:tsup" in mrm.packageJson().get("scripts")
+
+		const buildTsupScript = hasBuildTsupScript ? "build:tsup" : "tsup"
+
+		mrm.packageJson()
+			.setScript("build", `pnpm lint && ${buildTsupScript}`)
+			.save()
 	} else if (hasTypescript) {
 		mrm.packageJson().setScript("build", "tsc").save()
 	}

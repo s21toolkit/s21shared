@@ -57,7 +57,7 @@ function setupPackage(parameters) {
 	}
 
 	mrm.packageJson()
-		.setScript("build", "tsup")
+		.setScript("build:tsup", "tsup")
 		.setScript("lint:tsc", "tsc")
 		.save()
 
