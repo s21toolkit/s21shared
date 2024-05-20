@@ -14,7 +14,7 @@ function configurePackage() {
 			mrm.packageJson().setScript("lint:biome", "biome check .").save()
 		}
 
-		lintScripts.push("lint:biome")
+		lintScripts.push("pnpm lint:biome")
 	}
 
 	if (hasTypescript) {
@@ -24,7 +24,7 @@ function configurePackage() {
 			mrm.packageJson().setScript("lint:tsc", "tsc").save()
 		}
 
-		lintScripts.push("lint:tsc")
+		lintScripts.push("pnpm lint:tsc")
 	}
 
 	mrm.packageJson().setScript("lint", lintScripts.join(" && ")).save()
@@ -35,7 +35,7 @@ function configurePackage() {
 		const hasBuildTsupScript =
 			"build:tsup" in mrm.packageJson().get("scripts")
 
-		const buildTsupScript = hasBuildTsupScript ? "build:tsup" : "tsup"
+		const buildTsupScript = hasBuildTsupScript ? "pnpm build:tsup" : "tsup"
 
 		mrm.packageJson()
 			.setScript("build", `pnpm lint && ${buildTsupScript}`)
