@@ -13,10 +13,13 @@ function fromTemplate(filepath) {
  * @param {boolean} parameters.configureVSCode
  */
 function setupBiome(parameters) {
-	mrm.install(["@biomejs/biome"], {
-		pnpm: true,
-		dev: true,
-	})
+	mrm.install(
+		{ "@biomejs/biome": "^1", "@s21toolkit/shared": "latest" },
+		{
+			pnpm: true,
+			dev: true,
+		},
+	)
 
 	const configTemplate = mrm.json(fromTemplate("biome.json"))
 	const vscodeSettingsTemplate = mrm.json(fromTemplate("settings.json"))
