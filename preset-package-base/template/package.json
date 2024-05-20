@@ -1,4 +1,5 @@
 {
+  "type": "module",
 	"private": false,
 	"scripts": {
 		"postversion": "git push & git push --tags",
