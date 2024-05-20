@@ -24,7 +24,7 @@ function setupBasicPackage() {
 	const npmrc = mrm.file(".npmrc")
 
 	if (!npmrc.exists()) {
-		npmrcTemplate.save(npmrcTemplate.get())
+		npmrc.save(npmrcTemplate.get())
 	}
 
 	const packageJsonTemplate = mrm.json(fromTemplate("package.json"))
