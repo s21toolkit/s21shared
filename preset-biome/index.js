@@ -13,7 +13,7 @@ function fromTemplate(filepath) {
  * @param {boolean} parameters.configureVSCode
  */
 function setupBiome(parameters) {
-	mrm.install(["@biomejs/biome", "@s21toolkit/shared"], {
+	mrm.install(["@biomejs/biome"], {
 		pnpm: true,
 		dev: true,
 	})
@@ -23,26 +23,28 @@ function setupBiome(parameters) {
 
 	const config = mrm.json("biome.json")
 
-	config.merge(configTemplate).save()
+	config.merge(configTemplate.get()).save()
 
 	if (parameters.configureVSCode) {
 		const vscodeSettings = mrm.json(".vscode/settings.json")
 
-		vscodeSettings.merge(vscodeSettingsTemplate).save()
+		vscodeSettings.merge(vscodeSettingsTemplate.get()).save()
 	}
 
 	mrm.packageJson()
 		.setScript("lint:biome", "biome check .")
 		.setScript("fix:biome", "biome check --apply .")
+		.save()
 }
 
 setupBiome.description = "Sets up biome linter"
 
+/** @type {TaskParameters} */
 setupBiome.parameters = {
 	configureVSCode: {
-		type: "checkbox",
+		type: "select",
 		default: false,
-		description: "Configure VSCode to use biome as a formatter",
+		message: "Configure VSCode to use biome as a formatter",
 	},
 }
 
