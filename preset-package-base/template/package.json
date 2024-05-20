@@ -1,0 +1,8 @@
+{
+	"private": false,
+	"scripts": {
+		"postversion": "git push & git push --tags",
+		"release": "npm version -m 'chore(release): %s' --"
+	},
+  "license": "MIT"
+}

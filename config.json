@@ -6,6 +6,8 @@
 
 		"license": ["preset-license"],
 
-		"gitignore": ["preset-gitignore"]
+		"gitignore": ["preset-gitignore"],
+
+		"package-base": ["preset-package-base"]
 	}
 }
