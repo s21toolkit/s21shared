@@ -1,6 +1,6 @@
 {
 	"aliases": {
-		"biome": ["preset-biome"],
+		"biome": ["preset-biome", "preset-package-configure"],
 
 		"editorconfig": ["preset-editorconfig"],
 
@@ -8,6 +8,17 @@
 
 		"gitignore": ["preset-gitignore"],
 
-		"package-base": ["preset-package-base"]
+		"package-base": ["preset-package-base", "preset-package-configure"],
+
+		"package": ["preset-package", "preset-package-configure"],
+
+		"setup": [
+			"preset-editorconfig",
+			"preset-license",
+			"preset-gitignore",
+			"preset-package",
+			"preset-biome",
+			"preset-package-configure"
+		]
 	}
 }

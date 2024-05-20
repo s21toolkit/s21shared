@@ -12,12 +12,16 @@
     "@biomejs/biome": "^1.7.3",
     "@inquirer/prompts": "^5.0.4",
     "@types/node": "^20.12.12",
+    "cmd-ts": "^0.13.0",
     "typescript": "^5.4.5"
   },
   "dependencies": {
     "@tsconfig/node20": "^20.1.4",
     "@tsconfig/strictest": "^2.0.5",
     "mrm-core": "^7.1.22"
+  },
+  "exports": {
+    "./tsup": "./tsup/configurations.js"
   },
   "private": false
 }
