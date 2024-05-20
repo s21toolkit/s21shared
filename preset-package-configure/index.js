@@ -29,6 +29,18 @@ function configurePackage() {
 
 	mrm.packageJson().setScript("lint", lintScripts.join(" && ")).save()
 
+	if (hasBiome) {
+		const hasFixBiomeScript = "fix:biome" in mrm.packageJson().get("scripts")
+
+		if (!hasFixBiomeScript) {
+			mrm.packageJson()
+				.setScript("fix:biome", "biome check --apply .")
+				.save()
+		}
+
+		mrm.packageJson().setScript("fix", "pnpm fix:biome").save()
+	}
+
 	const hasTsup = mrm.file("tsup.config.ts").exists()
 
 	if (hasTsup) {
