@@ -20,6 +20,13 @@ function setupBasicPackage() {
 			.save()
 	}
 
+	const npmrcTemplate = mrm.file(fromTemplate(".npmrc"))
+	const npmrc = mrm.file(".npmrc")
+
+	if (!npmrc.exists()) {
+		npmrcTemplate.save(npmrcTemplate.get())
+	}
+
 	const packageJsonTemplate = mrm.json(fromTemplate("package.json"))
 
 	mrm.packageJson().merge(packageJsonTemplate.get()).save()
