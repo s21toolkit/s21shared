@@ -26,6 +26,12 @@ function setupPackage(parameters) {
 		})
 		.save()
 
+	const tsconfigTemplate = mrm.json(fromTemplate("tsconfig.json"))
+
+	const tsconfig = mrm.json("tsconfig.json")
+
+	tsconfig.merge(tsconfigTemplate.get()).save()
+
 	if (parameters.packageType === "cli") {
 		mrm.install("cmd-ts", { pnpm: true })
 
