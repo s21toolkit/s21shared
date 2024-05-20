@@ -5,6 +5,7 @@ import { binary, command, restPositionals, run, string } from "cmd-ts"
 
 const s21scaffoldCommand = command({
 	name: "s21!",
+	description: "Runs @s21toolkit/shared tasks",
 	args: {
 		tasks: restPositionals({
 			type: string,
