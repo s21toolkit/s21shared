@@ -16,6 +16,7 @@
 			"preset-editorconfig",
 			"preset-license",
 			"preset-gitignore",
+			"preset-package-base",
 			"preset-package",
 			"preset-biome",
 			"preset-package-configure"
