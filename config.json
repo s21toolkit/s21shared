@@ -12,6 +12,8 @@
 
 		"package": ["preset-package", "preset-package-configure"],
 
+		"configure": ["preset-package-configure"],
+
 		"setup": [
 			"preset-editorconfig",
 			"preset-license",
