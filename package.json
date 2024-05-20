@@ -10,7 +10,7 @@
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "^1.7.3",
-    "@inquirer/prompts": "^5.0.4",
+    "@types/inquirer": "7",
     "@types/node": "^20.12.12",
     "cmd-ts": "^0.13.0",
     "typescript": "^5.4.5"
