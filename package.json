@@ -1,6 +1,6 @@
 {
   "name": "@s21toolkit/shared",
-  "version": "0.4.0-dev.0",
+  "version": "0.4.0",
   "description": "Shared configurations and templates for s21toolkit projects.",
   "main": "config.json",
   "scripts": {
