@@ -15,7 +15,7 @@ function fromTemplate(filepath) {
  * @param {string} parameters.packageType
  */
 function setupPackage(parameters) {
-	mrm.install(["tsup", "typescript"], {
+	mrm.install(["tsup", "typescript", "@total-typescript/ts-reset"], {
 		pnpm: true,
 		dev: true,
 	})
@@ -83,6 +83,8 @@ function setupPackage(parameters) {
 	} else {
 		mrm.copyFiles(templateDirectory, "src/index.ts")
 	}
+
+	mrm.copyFiles(templateDirectory, "src/reset.d.ts")
 }
 
 setupPackage.description = "Creates package.json file and sets up basic fields"
