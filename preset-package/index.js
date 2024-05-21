@@ -79,9 +79,9 @@ function setupPackage(parameters) {
 	}
 
 	if (parameters.packageType === "cli") {
-		mrm.copyFiles(templateDirectory, "src/main.ts")
+		mrm.copyFiles(templateDirectory, "src/main.ts", { overwrite: false })
 	} else {
-		mrm.copyFiles(templateDirectory, "src/index.ts")
+		mrm.copyFiles(templateDirectory, "src/index.ts", { overwrite: false })
 	}
 
 	mrm.copyFiles(templateDirectory, "src/reset.d.ts")
