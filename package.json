@@ -28,7 +28,8 @@
     "./tsup": "./tsup/configurations.js",
     "./tsconfig/base.tsconfig.json": "./tsconfig/base.tsconfig.json",
     "./tsconfig/node.tsconfig.json": "./tsconfig/node.tsconfig.json",
-    "./tsconfig/tsup.tsconfig.json": "./tsconfig/tsup.tsconfig.json"
+    "./tsconfig/tsup.tsconfig.json": "./tsconfig/tsup.tsconfig.json",
+    "./tsconfig/dom.tsconfig.json": "./tsconfig/dom.tsconfig.json"
   },
   "private": false
 }
