@@ -86,9 +86,20 @@ function configurePackage(parameters) {
 		}
 
 		const sortedCategories = Array.from(categorizedScripts.entries()).sort(
-			(a, b) =>
-				SCRIPT_SORT_PRIORITY.indexOf(a[0]) -
-					SCRIPT_SORT_PRIORITY.indexOf(b[0]) || a[1].length - b[1].length,
+			(a, b) => {
+				let aPriority = SCRIPT_SORT_PRIORITY.indexOf(a[0])
+				let bPriority = SCRIPT_SORT_PRIORITY.indexOf(b[0])
+
+				if (aPriority === -1) {
+					aPriority = SCRIPT_SORT_PRIORITY.length
+				}
+
+				if (bPriority === -1) {
+					bPriority = SCRIPT_SORT_PRIORITY.length
+				}
+
+				return aPriority - bPriority || a[1].length - b[1].length
+			},
 		)
 
 		const sortedScriptsEntries = []
