@@ -105,7 +105,7 @@ function configurePackage(parameters) {
 		const sortedScriptsEntries = []
 
 		for (const [, scripts] of sortedCategories) {
-			const sortedScripts = scripts.sort((a, b) => a.localeCompare(b))
+			const sortedScripts = scripts.sort((a, b) => b.localeCompare(a))
 
 			sortedScriptsEntries.push(
 				...sortedScripts.map(
