@@ -1,6 +1,12 @@
 const mrm = require("mrm-core")
 
-function configurePackage() {
+const SCRIPT_SORT_PRIORITY = ["lint", "fix", "test", "build"]
+
+/**
+ * @param {object} parameters
+ * @param {boolean} parameters.sortPackageScripts
+ */
+function configurePackage(parameters) {
 	const hasBiome = mrm.file("biome.json").exists()
 	const hasTypescript = mrm.file("tsconfig.json").exists()
 
@@ -61,9 +67,59 @@ function configurePackage() {
 	if (hasBuildScript) {
 		mrm.packageJson().setScript("prepublishOnly", "pnpm build").save()
 	}
+
+	if (parameters.sortPackageScripts) {
+		/** @type {Record<string, string>} */
+		const packageScripts = mrm.packageJson().get("scripts") ?? {}
+
+		/** @type {Map<string, string[]>} */
+		const categorizedScripts = new Map()
+
+		for (const name in packageScripts) {
+			const category = name.split(":")[0] ?? ""
+
+			const scripts = categorizedScripts.get(category) ?? []
+
+			scripts.push(name)
+
+			categorizedScripts.set(category, scripts)
+		}
+
+		const sortedCategories = Array.from(categorizedScripts.entries()).sort(
+			(a, b) =>
+				SCRIPT_SORT_PRIORITY.indexOf(a[0]) -
+					SCRIPT_SORT_PRIORITY.indexOf(b[0]) || a[1].length - b[1].length,
+		)
+
+		const sortedScriptsEntries = []
+
+		for (const [, scripts] of sortedCategories) {
+			const sortedScripts = scripts.sort((a, b) => a.localeCompare(b))
+
+			sortedScriptsEntries.push(
+				...sortedScripts.map(
+					(script) =>
+						/** @type {const} */ ([script, packageScripts[script] ?? ""]),
+				),
+			)
+		}
+
+		mrm.packageJson()
+			.set("scripts", Object.fromEntries(sortedScriptsEntries))
+			.save()
+	}
 }
 
 configurePackage.description =
 	"Links different tools together and configures package.json, intended to be used after all setup tasks"
+
+/** @type {TaskParameters} */
+configurePackage.parameters = {
+	sortPackageScripts: {
+		type: "confirm",
+		default: true,
+		message: "Sort package.json scripts",
+	},
+}
 
 module.exports = configurePackage
