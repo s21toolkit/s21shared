@@ -30,8 +30,6 @@ function setupPackage(parameters) {
 
 	const tsconfig = mrm.json("tsconfig.json")
 
-	tsconfig.merge(tsconfigTemplate.get()).save()
-
 	if (parameters.packageType === "cli") {
 		mrm.install("cmd-ts", { pnpm: true })
 
@@ -61,7 +59,21 @@ function setupPackage(parameters) {
 		parameters.packageType === "cli"
 	) {
 		mrm.install("@types/node", { pnpm: true, dev: true })
+
+		tsconfig
+			.merge({
+				extends: ["@s21toolkit/shared/tsconfig/node.tsconfig.json"],
+			})
+			.save()
+	} else {
+		tsconfig
+			.merge({
+				extends: ["@s21toolkit/shared/tsconfig/dom.tsconfig.json"],
+			})
+			.save()
 	}
+
+	tsconfig.merge(tsconfigTemplate.get()).save()
 
 	mrm.packageJson()
 		.setScript("build:tsup", "tsup")
