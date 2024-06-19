@@ -31,7 +31,7 @@ function setupPackage(parameters) {
 	const tsconfig = mrm.json("tsconfig.json")
 
 	if (parameters.packageType === "cli") {
-		mrm.install("cmd-ts", { pnpm: true })
+		mrm.install("cmd-ts", { pnpm: true, dev: false })
 
 		mrm.packageJson()
 			.merge({
