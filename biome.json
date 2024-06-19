@@ -34,7 +34,7 @@
 			"quoteStyle": "double",
 			"lineWidth": 80,
 			"quoteProperties": "preserve",
-			"trailingComma": "all",
+			"trailingCommas": "all",
 			"semicolons": "asNeeded"
 		}
 	},
