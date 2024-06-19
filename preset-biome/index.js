@@ -33,7 +33,7 @@ function setupBiome(parameters) {
 
 	mrm.packageJson()
 		.setScript("lint:biome", "biome check .")
-		.setScript("fix:biome", "biome check --apply .")
+		.setScript("fix:biome", "biome check --write .")
 		.save()
 }
 

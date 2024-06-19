@@ -40,7 +40,7 @@ function configurePackage(parameters) {
 
 		if (!hasFixBiomeScript) {
 			mrm.packageJson()
-				.setScript("fix:biome", "biome check --apply .")
+				.setScript("fix:biome", "biome check --write .")
 				.save()
 		}
 
