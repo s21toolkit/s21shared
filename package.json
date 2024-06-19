@@ -12,16 +12,16 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "^1.7.3",
-    "@types/inquirer": "7",
-    "@types/node": "^20.12.12",
+    "@biomejs/biome": "^1.8.1",
+    "@types/inquirer": "^7.3.3",
+    "@types/node": "^20.14.5",
     "typescript": "^5.4.5"
   },
   "dependencies": {
     "@tsconfig/node20": "^20.1.4",
     "@tsconfig/strictest": "^2.0.5",
-    "mrm-core": "^7.1.22",
-    "cmd-ts": "^0.13.0"
+    "cmd-ts": "^0.13.0",
+    "mrm-core": "^7.1.22"
   },
   "exports": {
     ".": "./config.json",
