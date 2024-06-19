@@ -3,7 +3,10 @@
 	"extends": ["@tsconfig/strictest/tsconfig.json"],
 	"compilerOptions": {
 		"exactOptionalPropertyTypes": false,
-		"noPropertyAccessFromIndexSignature": false
+		"noPropertyAccessFromIndexSignature": false,
+
+		"target": "ES2022",
+		"lib": ["ES2023"]
 	},
 	"exclude": ["build"]
 }
