@@ -3,8 +3,6 @@ name: Publish PNPM Package
 on:
   push:
     tags: "v*.*.*"
-    paths:
-      - '.github/workflows/*.y*ml'
 
 permissions:
   contents: read
