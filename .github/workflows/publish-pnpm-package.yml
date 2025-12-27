@@ -27,4 +27,4 @@ jobs:
       - run: |
           pnpm install -g npm@11.7.0
           pnpm install --frozen-lockfile
-          pnpm publish --access public --no-git-checks --provenance
+          pnpm publish --no-git-checks

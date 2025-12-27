@@ -34,5 +34,9 @@
     "./tsconfig/node.tsconfig.json": "./tsconfig/node.tsconfig.json",
     "./tsconfig/tsup.tsconfig.json": "./tsconfig/tsup.tsconfig.json",
     "./tsconfig/dom.tsconfig.json": "./tsconfig/dom.tsconfig.json"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }
