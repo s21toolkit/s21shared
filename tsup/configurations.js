@@ -11,7 +11,7 @@ const base = {
 const nodeBase = {
 	...base,
 	platform: "node",
-	target: "node20",
+	target: "node24",
 }
 
 /** @satisfies {BuildOptions} */

@@ -12,17 +12,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/s21toolkit/s21shared"
+    "url": "git+https://github.com/s21toolkit/s21shared.git"
   },
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "^2.3.10",
     "@types/inquirer": "^9.0.9",
-    "@types/node": "^25.0.3",
-    "typescript": "^5.9.3"
+    "@types/node": "^24.10.4",
+    "typescript": "^5.9.3",
+    "tsup": "8.4.0"
   },
   "dependencies": {
-    "@tsconfig/node20": "^20.1.8",
+    "@tsconfig/node24": "^24.0.3",
     "@tsconfig/strictest": "^2.0.8",
     "cmd-ts": "^0.14.3",
     "mrm-core": "^7.1.22"
@@ -38,5 +39,13 @@
   "publishConfig": {
     "access": "public",
     "provenance": true
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "esbuild"
+    ],
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }
